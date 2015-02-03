@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet" media="screen">
+    <script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+    <title>Pocket Calculator</title>
+</head>
+<body>
+<h2>Calculator</h2>
+<div id="calculator">
+    <form role="form" id="calc" method="post">
+        <input name="x" type="number" value="0" method="post"/>
+        <select name="operator" id="op">
+            <option value="0">+</option>
+            <option value="1">-</option>
+            <option value="2">&times;</option>
+            <option value="3">&divide;</option>
+        </select>
+        <input name="y" type="number" value="0" method="post"/>
+        <button type="submit">=</button>
+        <div class="solution">
+        <output name="out" for "x y">
+            {% if result %}
+                {{ result }}
+            {% endif %}
+        </output>
+        </div>
+    </form>
+
+</div>
+    
+</body>
+</html>
