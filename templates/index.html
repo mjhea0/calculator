@@ -10,23 +10,19 @@
 <body>
 <h2>Calculator</h2>
 <div id="calculator">
-    <form role="form" id="calc" method="post">
-        <input name="x" type="number" value="0" method="post"/>
-        <select name="operator" id="op">
-            <option value="0">+</option>
-            <option value="1">-</option>
-            <option value="2">&times;</option>
-            <option value="3">&divide;</option>
-        </select>
-        <input name="y" type="number" value="0" method="post"/>
-        <button type="submit">=</button>
-        <div class="solution">
-        <output name="out" for "x y">
+    <form role="form" id="calc" method="POST">
+        <input name="x" type="number" value="0"/><br>
+        <input name="y" type="number" value="0"/>
+        <button type="submit" name="0" value="add">+</button>
+        <button type="submit" name="1" value="subtract">-</button>
+        <button type="submit" name="2" value="multiply">&times;</button>
+        <button type="submit" name="3" value="divide">&divide;</button>
+        <!-- <button type="submit">=</button> -->
+        <output name="out" for "x y" class="solve">
             {% if result %}
                 {{ result }}
             {% endif %}
         </output>
-        </div>
     </form>
 
 </div>

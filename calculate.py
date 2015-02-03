@@ -7,20 +7,15 @@ app = Flask(__name__)
 def calculate():
     if request.method == "POST":
         num1 = int(request.form['x'])
-        print num1
         num2 = int(request.form['y'])
-        operator = request.form['operator']
-        if operator == '0':
-           result = (num1 + num2)
-        elif operator == '1':
+        if request.form.get('0'):
+          result = (num1 + num2)
+        elif request.form.get('1'):
           result = (num1 - num2)
-
-        elif operator == '2':
-           result = (num1 * num2)
-
-        elif operator == '3':
-           result = (num1 / num2)
-
+        elif request.form.get('2'):
+          result = (num1 * num2)
+        elif request.form.get('3'):
+          result = (num1 / num2)
         return render_template("index.html", result=result)        
 
     else:
