@@ -9,23 +9,44 @@
 </head>
 <body>
 <h2>Calculator</h2>
-<div id="calculator">
-    <form role="form" id="calc" method="POST">
-        <input name="x" type="number" value="0"/><br>
-        <input name="y" type="number" value="0"/>
-        <button type="submit" name="0" value="add">+</button>
-        <button type="submit" name="1" value="subtract">-</button>
-        <button type="submit" name="2" value="multiply">&times;</button>
-        <button type="submit" name="3" value="divide">&divide;</button>
-        <!-- <button type="submit">=</button> -->
-        <output name="out" for "x y" class="solve">
+<div id="container">
+    <form role="form" id="calculator" method="POST">
+        <div id="input">
+            <input name="x" type="number" value="0" required/>
+            <input name="y" type="number" value="0" required/>
+        </div>
+        <output name="out" class="output">
             {% if result %}
                 {{ result }}
             {% endif %}
+            {% if error %}
+                {{ error }}
+            {% endif %}
         </output>
+        <table id="operators" class="column-right">
+            <td><button type="submit" name="add" value="add">+</button></td>
+            <td><button type="submit" name="subtract" value="subtract">-</button></td>
+            <td><button type="submit" name="multiply" value="multiply">&times;</button></td>
+            <td><button type="submit" name="divide" value="divide">&divide;</button><td>
+        </table> 
+        <table id="numbers" class="column-left">
+            <tr>
+            <td><button type="submit" value="7">7</button></td>
+            <td><button type="submit" value="8">8</button></td>
+            <td><button type="submit"value="9">9</button></td>
+            </tr>
+            <tr>
+            <td><button type="submit" value="4">4</button></td>
+            <td><button type="submit" value="5">5</button></td>
+            <td><button type="submit" value="6">6</button></td>
+            </tr>
+            <tr>
+            <td><button type="submit" value="1">1</button></td>
+            <td><button type="submit" value="2">2</button></td>
+            <td><button type="submit" value="3">3</button></td>
+            </tr>
+        </table>
     </form>
-
 </div>
-    
 </body>
 </html>
