@@ -10,9 +10,6 @@ numbers = []
 class Numbers(restful.Resource):
     def get(self):
         return numbers
-    def put(self):
-        numbers[value] = request.form[x]
-        return {value: request.form[x]}
 
 class Calculate(restful.Resource):
     def get(self):
@@ -23,19 +20,11 @@ class Calculate(restful.Resource):
         error = []
         result = []
         if request.method == "POST":
-          numbers = [
-              {
-              'value': int(request.form['x']),
-              },
-              {
-              'value': int(request.form['y'])
-              }  
-          ]
-          for number in numbers:
-            print number['value']
-          print len(numbers)
-          num1 = numbers[0]['value']
-          num2 = numbers[1]['value']
+          numbers = [int(request.form['x']), int(request.form['y'])]
+          num1 = numbers[0]
+          print num1
+          num2 = numbers[1]
+          print num2
           if request.form.get('add'):
               result = (num1 + num2)
           elif request.form.get('subtract'):
