@@ -43,7 +43,9 @@ $(document).ready(function () {
     // });
       
     $(".clear").click(function(){ 
+        console.log("clear");
         $("input").val('');
+        $(".output").text('');
     }); 
       
     $(".equals").click(function(){ 

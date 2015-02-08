@@ -20,6 +20,9 @@ def solve(num1, num2):
             return error
         else:
             result = (num1 / num2)
+    elif request.form.get('equal'):
+        error = "Please choose an operator"
+        return error
     return result
 
 class Numbers(restful.Resource):

@@ -21,15 +21,11 @@ h2 {
     box-shadow: 4px 4px #009D9C, 5px 10px 15px rgba(0, 0, 0, 0.2);
 }
 input {
-    width: 75px;
+    width: 55px;
     height: 15px;
     padding: 2px 2px 2px;
     margin: 5px 5px 5px;
     border-radius: 3px;
-}
-.input {
-    float: left;
-    display: inline-block;
 }
 .output {
     margin: 5px 5px 5px;
@@ -43,8 +39,8 @@ output {
 button {
     font-weight: 600;
     font-size: 16px;
-    width: 30px;
-    height: 30px;
+    width: 35px;
+    height: 35px;
     border-radius: 5px;
 }
 #numbers {
@@ -53,14 +49,18 @@ button {
 }
 .buttons {
     height:160px;
-    width: 240px;
+    width: 165px;
     text-align: center;
 }
 #operators {
     display: inline-block;
-    float: left;
+    float: right;
     height: 160px;
-    position: absolute;
+    position: relative;
     vertical-align: middle;
     overflow: hidden;
+}
+.equals {
+    height: 25px;
+    width: 25px;
 }
