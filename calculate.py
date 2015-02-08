@@ -18,17 +18,17 @@ class Calculate(restful.Resource):
             operator = request.form.get(str('operator'))
 
             if operator == 'add':
-                result = {'result': str(num1 + num2)}
+                result = {'result': num1 + num2}
             if operator == 'subtract':
-                result = {'result': str(num1 - num2)}
+                result = {'result': num1 - num2}
             if operator == 'multiply':
-                result = {'result': str(num1 * num2)}
+                result = {'result': num1 * num2}
             if operator == "divide":
                 if num2 == 0:
                     error = {'error': "Cannot divide by zero"}
                     return error
                 else:
-                    result = {'result': str(num1 / num2)}
+                    result = {'result': num1 / num2}
 
             print result
             return jsonify(result)
