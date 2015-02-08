@@ -29,30 +29,34 @@ $(document).ready(function () {
         num1 = numbers[0];
         num2 = $("input[name='x']").val();
         numbers.push(num2);
-        console.log(numbers);
-        console.log(operator);
-
-        $.ajax({
-            type: "POST",
-            url: "/",
-            data: {
-                'num1': num1,
-                'num2': num2,
-                'operator': operator
-            },
-            success: function(result) {
-                console.log(result);
-                $.each(result, function(idx, obj) {
-                    console.log(obj);
-                    $('.output').text(obj)
-                    numbers = []
-                    $("input").val('');
-                });
-            },
-            error: function(error) {
-                console.log(error);
-            }
-        });
+        if (numbers.length < 2) {
+            $("#errors").text('You need a second number.');
+        }
+        else {
+            console.log(numbers);
+            console.log(operator);
+            $.ajax({
+                type: "POST",
+                url: "/",
+                data: {
+                    'num1': num1,
+                    'num2': num2,
+                    'operator': operator
+                },
+                success: function(result) {
+                    console.log(result);
+                    $.each(result, function(idx, obj) {
+                        console.log(obj);
+                        $('.output').text(obj)
+                        numbers = []
+                        $("input").val('');
+                    });
+                },
+                error: function(error) {
+                    console.log(error);
+                }
+            });
+        }  
     }
 
     function clear() {
