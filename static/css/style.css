@@ -1,6 +1,9 @@
 body {
     font-family: 'Arial', sans-serif;
 }
+div {
+    border-style: solid;
+}
 h2 {
     font-size: 14px;
     font-weight: 400;
@@ -47,4 +50,17 @@ button {
 #numbers {
     float: left;
     display: inline-block;
+}
+.buttons {
+    height:160px;
+    width: 240px;
+    text-align: center;
+}
+#operators {
+    display: inline-block;
+    float: left;
+    height: 160px;
+    position: absolute;
+    vertical-align: middle;
+    overflow: hidden;
 }

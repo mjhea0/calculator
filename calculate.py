@@ -7,6 +7,21 @@ api = restful.Api(app)
 
 numbers = []
 
+def solve(num1, num2):
+    if request.form.get('add'):
+        result = (num1 + num2)
+    elif request.form.get('subtract'):
+        result = (num1 - num2)
+    elif request.form.get('multiply'):
+        result = (num1 * num2)
+    elif request.form.get('divide'):
+        if num2 == 0:
+            error = "Cannot divide by zero"
+            return error
+        else:
+            result = (num1 / num2)
+    return result
+
 class Numbers(restful.Resource):
     def get(self):
         return numbers
@@ -20,28 +35,21 @@ class Calculate(restful.Resource):
         error = []
         result = []
         if request.method == "POST":
-          numbers = [int(request.form['x']), int(request.form['y'])]
-          num1 = numbers[0]
-          print num1
-          num2 = numbers[1]
-          print num2
-          if request.form.get('add'):
-              result = (num1 + num2)
-          elif request.form.get('subtract'):
-              result = (num1 - num2)
-          elif request.form.get('multiply'):
-              result = (num1 * num2)
-          elif request.form.get('divide'):
-              if num2 == 0:
-                  error = "Cannot divide by zero"
-              else:
-                  result = (num1 / num2)
-          headers = {'Content-Type': 'text/html'}
-          return make_response(render_template('index.html', result=result, error=error),200, headers) 
+            num1 = int(request.form['x'])
+            num2 = int(request.form['y'])
+            global numbers
+            numbers.append(num1) 
+            numbers.append(num2)
+            print numbers
+            result = solve(num1, num2)
+            print result
+            headers = {'Content-Type': 'text/html'}
+            return make_response(render_template('index.html', result=result, numbers=numbers, error=error),200, headers) 
 
         else:
             headers = {'Content-Type': 'text/html'}
-            return make_response(render_template('index.html', result=result, error=error),200, headers) 
+            return make_response(render_template('index.html', error=error),200, headers) 
+
 
 api.add_resource(Calculate, '/', endpoint="index")
 api.add_resource(Numbers, '/numbers', endpoint="numbers")
