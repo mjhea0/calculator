@@ -28,6 +28,10 @@ h3 {
 #calculator {
     margin: 0 auto;
     width: 50%;
+    height: 50%;
+}
+#errors {
+    text-align: center;
 }
 input {
     width: 110px;

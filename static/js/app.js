@@ -17,6 +17,10 @@ $(document).ready(function () {
         }
         numbers.push(num1);
         console.log(numbers);
+        if (numbers.length >= 2) {
+            $("#errors").text('Only 2 numbers at once! Try again.');
+            clear();
+        }
         console.log(operator);
         $("input").val('');
     }
@@ -51,7 +55,15 @@ $(document).ready(function () {
         });
     }
 
+    function clear() {
+        console.log("clear");
+        $("input").val('');
+        $(".output").text('');
+        numbers = []
+    }
+
     $(".number").click(function(){ 
+        $("#errors").empty();
         curValue = $("input").val();
         if (curValue != 0) {
             num1 = curValue;
@@ -71,6 +83,7 @@ $(document).ready(function () {
     });
 
     $(document).keydown(function(e) {
+        $("#errors").empty();
         if (e.keyCode == 107) {
         console.log('addition pressed');
         operator = 'add';
@@ -100,13 +113,7 @@ $(document).ready(function () {
     $(".equals").click(function(event){ 
         calculate();
     });
-    
-    function clear() {
-         console.log("clear");
-        $("input").val('');
-        $(".output").text('');
-        numbers = []
-    }
+
     $(".clear").click(function(){ 
         clear();
     }); 
