@@ -4,22 +4,35 @@ $(document).ready(function () {
     var numbers = []
     var operator = []
 
-    // $(".number").click(function(){ 
-    //     curValue = $("input").val();
-    //     console.log(curValue);
-    //     numbers.push(curvalue);
-    //     if (curValue <= 1) {
-    //         $("input[name='x']").val($(this).text());
-    //     }
-    //     else {
-    //         $("input[name='x']").val(curValue + $(this).text());
-    //     }
-    // })
-      
+    $(".number").click(function(){ 
+        curValue = $("input").val();
+        if (curValue != 0) {
+            num1 = curValue;
+        }
+        console.log(numbers);
+        if (curValue <= 1) {
+            $("input[name='x']").val($(this).text());
+        }
+        else {
+            $("input[name='x']").val(curValue + $(this).text());
+        }
+    })
+
     $(".operate").click(function(event){ 
         num1 = $("input[name='x']").val();
-        num2 = $("input[name='y']").val();
+        numbers.push(num1);
+        console.log(numbers);
         operator = $(this).prop('value');
+        console.log(operator);
+        $("input").val('');
+    });
+      
+    $(".equals").click(function(event){ 
+        num1 = numbers[0];
+        num2 = $("input[name='x']").val();
+        numbers.push(num2);
+        console.log(numbers);
+        console.log(operator);
 
         $.ajax({
             type: "POST",
@@ -34,6 +47,8 @@ $(document).ready(function () {
                 $.each(result, function(idx, obj) {
                     console.log(obj);
                     $('.output').text(obj)
+                    numbers = []
+                    $("input").val('');
                 });
             },
             error: function(error) {
