@@ -11,7 +11,7 @@
 <h2>Calculator</h2>
 <div id="container">
     <div id="forms">
-        <form role="form" method="POST" id="calculator" >
+        <form role="form" method="POST" id="calculator" onsubmit="return false">
 
             <input name="x" type="number" value="0" required/>
             <input name="y" type="number" value="0" required/>
@@ -28,7 +28,7 @@
     </div>         
     <div class="buttons"> 
         <table id="operators" class="column-right">
-            <tr><td><button type="submit" formnovalidate class="operate add" name="add" value="add">+</button></td></tr>
+            <tr><td><button type="submit" class="operate add" name="add" value="add">+</button></td></tr>
             <tr><td><button type="submit" class="operate subtract" name="subtract" value="subtract">-</button></td></tr>
             <tr><td><button type="submit" class="operate multiply"  name="multiply" value="multiply">&times;</button></td></tr>
             <tr><td><button type="submit" class="operate divide"  name="divide" value="divide">&divide;</button></td></tr>

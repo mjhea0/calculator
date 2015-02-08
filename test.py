@@ -7,7 +7,6 @@ class CalculatorTests(unittest.TestCase):
 
     def create_app(self):
         app = Flask(__name__)
-        app.config['TESTING'] = True 
         return app
 
     def test_index(self):
