@@ -1,6 +1,6 @@
 import unittest
-from flask import Flask, current_app
-from calculate import app
+from flask import Flask, json
+from run import app
 
 class CalculatorTests(unittest.TestCase):
 
@@ -23,7 +23,7 @@ class CalculatorTests(unittest.TestCase):
                 'num2': 4,
                 'operator': 'add'
             })
-        self.assertEqual(response.data, '{\n  "result": 6\n}')
+        self.assertEqual(json.loads(response.data)['result'], 6)
         self.assertEqual(response.status_code, 200)
 
         response = tester.post('/',  data={
@@ -31,7 +31,8 @@ class CalculatorTests(unittest.TestCase):
                 'num2': 10,
                 'operator': 'multiply'
             })
-        self.assertEqual(response.data, '{\n  "result": 50\n}')
+        self.assertIn('50', response.data)
+        self.assertEqual(json.loads(response.data)['result'], 50)
         self.assertEqual(response.status_code, 200)
 
         response = tester.post('/',  data={
