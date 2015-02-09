@@ -2,6 +2,7 @@ import unittest
 from flask import Flask, json
 from run import app
 
+
 class CalculatorTests(unittest.TestCase):
 
     def test_main_page_returns_form(self):
@@ -17,8 +18,10 @@ class CalculatorTests(unittest.TestCase):
 
     def test_index_post(self):
         tester = app.test_client(self)
-       
-        response = tester.post('/',  data={
+
+        response = tester.post(
+            '/',
+            data={
                 'num1': 2,
                 'num2': 4,
                 'operator': 'add'
@@ -26,7 +29,9 @@ class CalculatorTests(unittest.TestCase):
         self.assertEqual(json.loads(response.data)['result'], 6)
         self.assertEqual(response.status_code, 200)
 
-        response = tester.post('/',  data={
+        response = tester.post(
+            '/',
+            data={
                 'num1': 5,
                 'num2': 10,
                 'operator': 'multiply'
@@ -35,7 +40,9 @@ class CalculatorTests(unittest.TestCase):
         self.assertEqual(json.loads(response.data)['result'], 50)
         self.assertEqual(response.status_code, 200)
 
-        response = tester.post('/',  data={
+        response = tester.post(
+            '/',
+            data={
                 'num1': 5,
                 'num2': 0,
                 'operator': 'divide'

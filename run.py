@@ -5,14 +5,15 @@ from flask.ext.restful import reqparse
 app = Flask(__name__)
 api = restful.Api(app)
 
+
 class Calculate(restful.Resource):
     def get(self):
         headers = {'Content-Type': 'text/html'}
-        return make_response(render_template('index.html'),200, headers) 
-    
+        return make_response(render_template('index.html'), 200, headers)
+
     def post(self):
         if request.method == "POST":
-            
+
             num1 = int(request.form.get('num1'))
             num2 = int(request.form.get('num2'))
             operator = request.form.get(str('operator'))
@@ -34,7 +35,7 @@ class Calculate(restful.Resource):
             return jsonify(result)
         else:
             headers = {'Content-Type': 'text/html'}
-            return make_response(render_template('index.html', error=error),200, headers) 
+            return make_response(render_template('index.html', error=error), 200, headers)
 
 
 api.add_resource(Calculate, '/', endpoint="index")

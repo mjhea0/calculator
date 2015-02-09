@@ -2,12 +2,12 @@ $(document).ready(function () {
     event.preventDefault();
 
     // global variables
-    var numbers = []
-    var operator = []
+    var numbers = [];
+    var operator = [];
 
     function grabOperator() {
         input = $("input[name='x']").val();
-        if (input == "") {
+        if (input === "") {
             num1 = $('.output').text();
             console.log(num1);
         }
@@ -47,8 +47,8 @@ $(document).ready(function () {
                     console.log(result);
                     $.each(result, function(idx, obj) {
                         console.log(obj);
-                        $('.output').text(obj)
-                        numbers = []
+                        $('.output').text(obj);
+                        numbers = [];
                         $("input").val('');
                     });
                 },
@@ -56,20 +56,20 @@ $(document).ready(function () {
                     console.log(error);
                 }
             });
-        }  
+        }
     }
 
     function clear() {
         console.log("clear");
         $("input").val('');
         $(".output").text('');
-        numbers = []
+        numbers = [];
     }
 
-    $(".number").click(function(){ 
+    $(".number").click(function(){
         $("#errors").empty();
         curValue = $("input").val();
-        if (curValue != 0) {
+        if (curValue !== 0) {
             num1 = curValue;
         }
         console.log(numbers);
@@ -79,9 +79,9 @@ $(document).ready(function () {
         else {
             $("input[name='x']").val(curValue + $(this).text());
         }
-    })
+    });
 
-    $(".operate").click(function(event){ 
+    $(".operate").click(function(event){
         operator = $(this).prop('value');
         grabOperator();
     });
@@ -113,13 +113,13 @@ $(document).ready(function () {
         calculate();
         }
     });
-      
-    $(".equals").click(function(event){ 
+
+    $(".equals").click(function(event){
         calculate();
     });
 
-    $(".clear").click(function(){ 
+    $(".clear").click(function(){
         clear();
-    }); 
+    });
 
 });
