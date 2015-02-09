@@ -9,10 +9,10 @@ class Calculate(restful.Resource):
     def get(self):
         headers = {'Content-Type': 'text/html'}
         return make_response(render_template('index.html'),200, headers) 
-
     
     def post(self):
         if request.method == "POST":
+            
             num1 = int(request.form.get('num1'))
             num2 = int(request.form.get('num2'))
             operator = request.form.get(str('operator'))
@@ -38,7 +38,6 @@ class Calculate(restful.Resource):
 
 
 api.add_resource(Calculate, '/', endpoint="index")
-
 
 if __name__ == '__main__':
     app.run(debug=True)

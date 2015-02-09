@@ -14,7 +14,7 @@ h3 {
     text-align: center;
     font-weight: 400;
 }
-#container {
+.container {
     margin-left: auto;
     margin-right: auto;
     font-size: 14px;
@@ -25,12 +25,12 @@ h3 {
     border-radius: 3px;
     box-shadow: 4px 4px #009D9C, 5px 10px 15px rgba(0, 0, 0, 0.2);
 }
-#calculator {
+.calculator {
     margin: 0 auto;
     width: 50%;
     height: 50%;
 }
-#errors {
+.errors {
     text-align: center;
 }
 input {
@@ -57,7 +57,7 @@ button {
     height: 35px;
     border-radius: 5px;
 }
-#numbers {
+.numbers {
     float: left;
     display: inline-block;
 }
@@ -66,7 +66,7 @@ button {
     width: 165px;
     text-align: center;
 }
-#operators {
+.operators {
     display: inline-block;
     float: right;
     height: 160px;

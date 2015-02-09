@@ -18,7 +18,7 @@ $(document).ready(function () {
         numbers.push(num1);
         console.log(numbers);
         if (numbers.length >= 2) {
-            $("#errors").text('Only 2 numbers at once! Try again.');
+            $(".errors").text('Only 2 numbers at once! Try again.');
             clear();
         }
         console.log(operator);
@@ -30,7 +30,7 @@ $(document).ready(function () {
         num2 = $("input[name='x']").val();
         numbers.push(num2);
         if (numbers.length < 2) {
-            $("#errors").text('You need a second number.');
+            $(".errors").text('You need a second number.');
         }
         else {
             console.log(numbers);
@@ -87,7 +87,7 @@ $(document).ready(function () {
     });
 
     $(document).keydown(function(e) {
-        $("#errors").empty();
+        $(".errors").empty();
         if (e.keyCode == 107) {
         console.log('addition pressed');
         operator = 'add';
